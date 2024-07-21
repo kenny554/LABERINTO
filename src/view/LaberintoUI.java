@@ -33,7 +33,7 @@ public class LaberintoUI extends JFrame {
     private LaberintoController controller;
     private JTextField filaInicio, columnaInicio, filaFin, columnaFin;
     private JTextField filas, columnas;
-    private JButton generarLaberintoButton, resolverButton, reiniciarButton;
+    private JButton generarLaberintoButton, resolverButton, reiniciarButton, reiniciarLaberintoButton;
     private JComboBox<String> metodoComboBox;
     private JPanel laberintoPanel;
     private JLabel[][] laberintoLabels;
@@ -135,11 +135,18 @@ public class LaberintoUI extends JFrame {
         resolverButton.addActionListener(new SolveButtonListener());
 
         gbc.gridx = 0;
-        gbc.gridy = 8;
+        gbc.gridy = 9;
         gbc.gridwidth = 2;
-        reiniciarButton = new JButton("Reiniciar");
+        reiniciarButton = new JButton("Reiniciar Todo");
         configPanel.add(reiniciarButton, gbc);
         reiniciarButton.addActionListener(new ReiniciarButtonListener());
+
+        gbc.gridx = 0;
+        gbc.gridy = 8;
+        gbc.gridwidth = 2;
+        reiniciarLaberintoButton = new JButton("Reiniciar Laberinto");
+        configPanel.add(reiniciarLaberintoButton, gbc);
+        reiniciarLaberintoButton.addActionListener(new ReiniciarLaberintoButtonListener());
 
         add(configPanel, BorderLayout.WEST);
 
@@ -258,6 +265,9 @@ public class LaberintoUI extends JFrame {
                     displaySoluciones(soluciones, metodo, tiempoEjecucion);
                     moverPersonajePorCamino(soluciones.get(0)); // Mover el personaje a través del primer camino
                 }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(LaberintoUI.this, "Error en el formato de entrada: " + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(LaberintoUI.this, "Error al resolver el laberinto: " + ex.getMessage(),
                         "Error", JOptionPane.ERROR_MESSAGE);
@@ -279,6 +289,25 @@ public class LaberintoUI extends JFrame {
             columnaFin.setText("");
             laberintoPanel.revalidate();
             laberintoPanel.repaint();
+        }
+    }
+
+    private class ReiniciarLaberintoButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (laberintoLabels != null) {
+                // Limpiar sólo las celdas que son parte del recorrido, dejando las posiciones
+                // inicial y final
+                for (int i = 0; i < laberintoLabels.length; i++) {
+                    for (int j = 0; j < laberintoLabels[i].length; j++) {
+                        Color color = laberintoLabels[i][j].getBackground();
+                        if (color == Color.RED || color == Color.GREEN) {
+                            laberintoLabels[i][j].setBackground(Color.WHITE);
+                        }
+                    }
+                }
+                recorridoArea.setText(""); // Limpiar el área de texto del recorrido
+            }
         }
     }
 
@@ -306,7 +335,7 @@ public class LaberintoUI extends JFrame {
     }
 
     private void moverPersonajePorCamino(List<Pair<Integer, Integer>> camino) {
-        if (camino.isEmpty()) {
+        if (camino == null || camino.isEmpty()) {
             return;
         }
 
@@ -333,6 +362,10 @@ public class LaberintoUI extends JFrame {
     }
 
     private void actualizarPosicionPersonaje() {
+        if (personajePosicion == null) {
+            return;
+        }
+
         // Limpiar la posición anterior del personaje
         for (int i = 0; i < laberintoLabels.length; i++) {
             for (int j = 0; j < laberintoLabels[i].length; j++) {
