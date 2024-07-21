@@ -285,6 +285,16 @@ public class LaberintoUI extends JFrame {
     private void displaySoluciones(List<List<Pair<Integer, Integer>>> soluciones, String metodo, long tiempoEjecucion) {
         recorridoArea.setText(""); // Limpiar el área de texto de recorrido
         recorridoArea.append("Tiempo de ejecución: " + tiempoEjecucion + " ms\n\n");
+
+        // Marcar todas las celdas blancas como rojas antes de marcar el camino
+        for (int i = 0; i < laberintoLabels.length; i++) {
+            for (int j = 0; j < laberintoLabels[i].length; j++) {
+                if (laberintoLabels[i][j].getBackground() == Color.WHITE) {
+                    laberintoLabels[i][j].setBackground(Color.RED);
+                }
+            }
+        }
+
         for (List<Pair<Integer, Integer>> solucion : soluciones) {
             recorridoArea.append("Recorrido realizado por el método: " + metodo + "\n");
             for (Pair<Integer, Integer> posicion : solucion) {

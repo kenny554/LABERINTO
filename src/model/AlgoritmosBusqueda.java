@@ -16,12 +16,15 @@ public class AlgoritmosBusqueda {
     private List<List<Pair<Integer, Integer>>> soluciones;
     private Set<String> memo;
 
+    // Constructor de la clase que inicializa el laberinto, la lista de soluciones y
+    // el set de memoización
     public AlgoritmosBusqueda(Laberinto laberinto) {
         this.laberinto = laberinto;
         this.soluciones = new ArrayList<>();
         this.memo = new HashSet<>();
     }
 
+    // Método principal para resolver el laberinto usando diferentes algoritmos
     public Resultados resolverLaberinto(String metodo, Pair<Integer, Integer> puntoInicio,
             Pair<Integer, Integer> puntoFin) {
         soluciones.clear();
@@ -40,6 +43,7 @@ public class AlgoritmosBusqueda {
             throw new IllegalArgumentException("No se pudo encontrar un punto de inicio o fin válido.");
         }
 
+        // Selección del método de resolución
         switch (metodo) {
             case "RecursivoSimple":
                 resolverRecursivoSimple(puntoInicio.getFirst(), puntoInicio.getSecond(),
@@ -72,9 +76,11 @@ public class AlgoritmosBusqueda {
         List<Pair<Integer, Integer>> mejorCamino = soluciones.isEmpty() ? new ArrayList<>() : soluciones.get(0);
         int numPasos = mejorCamino.size() - 1;
 
+        // Retornar los resultados
         return new Resultados(mejorCamino, numPasos, duration);
     }
 
+    // Método para buscar el punto de inicio del laberinto
     private Pair<Integer, Integer> buscarPuntoInicio() {
         for (int i = 0; i < laberinto.getAlto(); i++) {
             for (int j = 0; j < laberinto.getAncho(); j++) {
@@ -86,6 +92,7 @@ public class AlgoritmosBusqueda {
         return null;
     }
 
+    // Método para buscar el punto de fin del laberinto
     private Pair<Integer, Integer> buscarPuntoFin() {
         for (int i = laberinto.getAlto() - 1; i >= 0; i--) {
             for (int j = laberinto.getAncho() - 1; j >= 0; j--) {
@@ -97,6 +104,7 @@ public class AlgoritmosBusqueda {
         return null;
     }
 
+    // Método recursivo simple para resolver el laberinto
     private void resolverRecursivoSimple(int x, int y, int finX, int finY,
             List<Pair<Integer, Integer>> caminoActual) {
         if (x == finX && y == finY) {
@@ -107,7 +115,7 @@ public class AlgoritmosBusqueda {
         }
 
         caminoActual.add(new Pair<>(x, y));
-        memo.add(x + "," + y);
+        memo.add(x + "," + y); // Usar un hash set para memoización
 
         int[][] movimientos = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 
@@ -122,6 +130,7 @@ public class AlgoritmosBusqueda {
         caminoActual.remove(caminoActual.size() - 1); // Backtracking
     }
 
+    // Método de programación dinámica para resolver el laberinto
     private void resolverProgramacionDinamica(int inicioX, int inicioY, int finX, int finY) {
         int[][] distancias = new int[laberinto.getAlto()][laberinto.getAncho()];
         Pair<Integer, Integer>[][] previos = new Pair[laberinto.getAlto()][laberinto.getAncho()];
@@ -169,6 +178,7 @@ public class AlgoritmosBusqueda {
         }
     }
 
+    // Método BFS para resolver el laberinto
     private List<Pair<Integer, Integer>> resolverBFS(int inicioX, int inicioY, int finX, int finY) {
         Queue<List<Pair<Integer, Integer>>> queue = new LinkedList<>();
         List<Pair<Integer, Integer>> caminoInicial = new ArrayList<>();
@@ -203,6 +213,7 @@ public class AlgoritmosBusqueda {
         return new ArrayList<>(); // Si no se encuentra solución, devolver un camino vacío
     }
 
+    // Método DFS para resolver el laberinto
     private void resolverDFS(int inicioX, int inicioY, int finX, int finY,
             List<Pair<Integer, Integer>> caminoActual) {
         caminoActual.add(new Pair<>(inicioX, inicioY));
@@ -226,11 +237,13 @@ public class AlgoritmosBusqueda {
         caminoActual.remove(caminoActual.size() - 1); // Backtracking
     }
 
+    // Método para verificar si una posición es válida dentro del laberinto
     private boolean esValido(int x, int y) {
         return x >= 0 && x < laberinto.getAlto() && y >= 0 && y < laberinto.getAncho()
                 && laberinto.getMatriz()[x][y] == 1;
     }
 
+    // Clase para almacenar los resultados de la búsqueda
     public static class Resultados {
         private List<Pair<Integer, Integer>> camino;
         private int numeroPasos;
