@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -39,10 +41,10 @@ public class LaberintoUI extends JFrame {
     private JLabel[][] laberintoLabels;
     private JTextArea recorridoArea;
 
-    private JLabel personajeLabel; // Representación del personaje
     private Pair<Integer, Integer> personajePosicion; // Posición actual del personaje
     private Timer movimientoTimer; // Timer para animar el movimiento del personaje
     private ImageIcon personajeIcon; // Icono del personaje
+    private Icon fondo;
 
     public LaberintoUI(LaberintoController controller) {
         this.controller = controller;
@@ -313,7 +315,7 @@ public class LaberintoUI extends JFrame {
 
     private void displaySoluciones(List<List<Pair<Integer, Integer>>> soluciones, String metodo, long tiempoEjecucion) {
         recorridoArea.setText(""); // Limpiar el área de texto de recorrido
-        recorridoArea.append("Tiempo de ejecución: " + tiempoEjecucion + " ms\n\n");
+        recorridoArea.append("Tiempo de ejecución: " + (tiempoEjecucion)*1e-6 + " s\n\n");
 
         // Marcar todas las celdas blancas como rojas antes de marcar el camino
         for (int i = 0; i < laberintoLabels.length; i++) {
@@ -362,6 +364,8 @@ public class LaberintoUI extends JFrame {
     }
 
     private void actualizarPosicionPersonaje() {
+        fondo = new ImageIcon(personajeIcon.getImage().getScaledInstance(laberintoLabels[0][0].getWidth(), laberintoLabels[0][0].getHeight(), Image.SCALE_DEFAULT));
+
         if (personajePosicion == null) {
             return;
         }
@@ -369,14 +373,12 @@ public class LaberintoUI extends JFrame {
         // Limpiar la posición anterior del personaje
         for (int i = 0; i < laberintoLabels.length; i++) {
             for (int j = 0; j < laberintoLabels[i].length; j++) {
-                if (laberintoLabels[i][j].getIcon() == personajeIcon) {
-                    laberintoLabels[i][j].setIcon(null);
-                }
+                laberintoLabels[i][j].setIcon(null);
             }
         }
 
         // Actualizar la nueva posición del personaje
-        laberintoLabels[personajePosicion.getFirst()][personajePosicion.getSecond()].setIcon(personajeIcon);
+        laberintoLabels[personajePosicion.getFirst()][personajePosicion.getSecond()].setIcon(fondo);
     }
 
     public static void main(String[] args) {
