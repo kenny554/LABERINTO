@@ -315,7 +315,7 @@ public class LaberintoUI extends JFrame {
 
     private void displaySoluciones(List<List<Pair<Integer, Integer>>> soluciones, String metodo, long tiempoEjecucion) {
         recorridoArea.setText(""); // Limpiar el área de texto de recorrido
-        recorridoArea.append("Tiempo de ejecución: " + (tiempoEjecucion)*1e-6 + " s\n\n");
+        recorridoArea.append("Tiempo de ejecución: " + tiempoEjecucion + " ms\n\n");
 
         // Marcar todas las celdas blancas como rojas antes de marcar el camino
         for (int i = 0; i < laberintoLabels.length; i++) {
