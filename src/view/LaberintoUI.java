@@ -88,7 +88,7 @@ public class LaberintoUI extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 2;
-        generarLaberintoButton = new JButton("Generar Laberinto");
+        generarLaberintoButton = new JButton("Generar Matriz del Laberinto");
         configPanel.add(generarLaberintoButton, gbc);
         generarLaberintoButton.addActionListener(new GenerarLaberintoListener());
 
