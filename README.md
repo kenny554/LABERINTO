@@ -10,11 +10,11 @@
 **Materia:** Estructura de datos  
 **Integrantes:** Daniel Guanga, Alexis Guaman, Luis Coronel
 
-- **Nombre del Integrante 1**  
+- **Daniel Guanga**  
   - Correo Institucional: [dguangag@est.ups.edu.ec](dguangag@est.ups.edu.ec)
-- **Nombre del Integrante 2**
+- **Alexis Guaman**
   - Correo Institucional: [aguamanp4@est.ups.edu.ec](aguamanp4@est.ups.edu.ec)
-- **Nombre del Integrante 3**
+- **Luis Coronel**
   - Correo Institucional: [lcoronelv@est.ups.edu.ec](lcoronelv@est.ups.edu.ec)
 
 ## Descripción del Problema
@@ -46,15 +46,15 @@ Cada integrante del equipo propuso diferentes criterios y enfoques para la imple
 
 ### Criterio por Integrante
 
-- **Integrante 1:**
+- **Daniel Guanga:**
   - Propuso usar el metodo BFS porque este metodo busca por todos los lugares hasta encontrar el final, y esto con la finalidad de que buscara el mejor recorrido o diferentes soluciones de poder llegar al destino, asi si nos pidieran cuantas soluciones puede haber para poder llegar al final, este seria una de las mejores opciones porque estaria recorriendo todos los lugares o secciones para encontrar el destino.
   - Implementó la generación de laberintos y la visualización de la interfaz gráfica.
 
-- **Integrante 2:**
+- **Alexis Guaman:**
   - Sugerió el uso de DFS para explorar completamente el laberinto y comparar su eficiencia con otros métodos. Ya que, el DFS explora tanto como sea posible a lo largo de cada rama antes de retroceder. Porque, es útil para problemas que tienen subestructuras superpuestas y una propiedad conocida como "optimalidad de subestructura" en donde guardara en un cache externo para evitar repetir el mismo lugar recorrido.
   - Implementó la lógica de movimiento del personaje y la animación.
 
-- **Integrante 3:**
+- **Luis Coronel:**
   - Propuso la programación dinámica para optimizar la búsqueda de caminos en laberintos grandes y complejos.
   - Se encargó de la integración de los algoritmos y la medición del tiempo de ejecución.
 
@@ -80,22 +80,22 @@ Entre los métodos analizados, el BFS demostró ser la mejor opción para encont
 
 ### Futuras Mejoras
 
-- **Integrante 1:**
-  - Implementar algoritmos de búsqueda heurísticos como A* para mejorar la eficiencia en laberintos grandes. Mejorar nuestra interfaz grafica y por ultimo que nuestro laberinto se pueda seleccionar que punto inicial y final por medio del raton y no usando campos de texto.
+- **Daniel Guanga:**
+  - Propuso implementar algoritmos de búsqueda heurísticos como A* para mejorar la eficiencia en laberintos grandes. Mejorar nuestra interfaz grafica y por ultimo que nuestro laberinto se pueda seleccionar que punto inicial y final por medio del raton y no usando campos de texto.
 
-- **Integrante 2:**
-  - Añadir la capacidad de guardar y cargar laberintos desde archivos.
+- **Alexis Guaman:**
+  - Propuso añadir la capacidad de guardar y cargar laberintos desde archivos.
 
-- **Integrante 3:**
-  - Integrar una funcionalidad de generación de laberintos aleatorios más compleja, incluyendo laberintos ponderados.
+- **Luis Coronel:**
+  - Propuso agregar una funcionalidad de generación de laberintos aleatorios más compleja, incluyendo laberintos ponderados.
 
 ### Aplicaciones
 
-- **Integrante 1:**
-  - Aplicación en la robótica para la navegación autónoma de robots en entornos complejos.
+- **Daniel Guanga:**
+  - Puede ser aplicaca en la robótica para la navegación autónoma de robots en entornos complejos.
 
-- **Integrante 2:**
-  - Uso en videojuegos para generar niveles de manera procedimental y mejorar la jugabilidad.
+- **Alexis Guaman:**
+  - En el uso en videojuegos para generar niveles de manera procedimental y mejorar la jugabilidad.
 
-- **Integrante 3:**
-  - Aplicación en la optimización de rutas de entrega en logística, minimizando tiempos de desplazamiento y costos.
+- **Luis Coronel:**
+  - Puede ser aplicaca en la optimización de rutas de entrega en logística, minimizando tiempos de desplazamiento y costos.
