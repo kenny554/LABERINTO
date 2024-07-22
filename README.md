@@ -2,17 +2,17 @@
 
 ## Carátula o Datos Generales
 
-**Universidad:** Nombre de la Universidad  
-**Carrera:** Nombre de la Carrera  
-**Materia:** Nombre de la Materia  
+**Universidad:** Universidad Politecnica Salesiana  
+**Carrera:** Computación  
+**Materia:** Estructura de datos  
 **Integrantes:**
 
-- **Nombre del Integrante 1**
-  - Correo Institucional: [integrante1@universidad.edu](mailto:integrante1@universidad.edu)
+- **Nombre del Integrante 1**  
+  - Correo Institucional: [Daniel Guanga](dguangag@est.ups.edu.ec)
 - **Nombre del Integrante 2**
-  - Correo Institucional: [integrante2@universidad.edu](mailto:integrante2@universidad.edu)
+  - Correo Institucional: [Alexis Guaman](aguamanp4@est.ups.edu.ec)
 - **Nombre del Integrante 3**
-  - Correo Institucional: [integrante3@universidad.edu](mailto:integrante3@universidad.edu)
+  - Correo Institucional: [Luis Coronel](mailto:integrante3@universidad.edu)
 
 ## Descripción del Problema
 
@@ -44,11 +44,11 @@ Cada integrante del equipo propuso diferentes criterios y enfoques para la imple
 ### Criterio por Integrante
 
 - **Integrante 1:**
-  - Propuso utilizar BFS debido a su eficiencia en encontrar el camino más corto en laberintos no ponderados.
+  - Propuso usar el metodo BFS porque este metodo busca por todos los lugares hasta encontrar el final, y esto con la finalidad de que buscara el mejor recorrido o diferentes soluciones de poder llegar al destino, asi si nos pidieran cuantas soluciones puede haber para poder llegar al final, este seria una de las mejores opciones porque estaria recorriendo todos los lugares o secciones para encontrar el destino.
   - Implementó la generación de laberintos y la visualización de la interfaz gráfica.
 
 - **Integrante 2:**
-  - Sugerió el uso de DFS para explorar completamente el laberinto y comparar su eficiencia con otros métodos.
+  - Sugerió el uso de DFS para explorar completamente el laberinto y comparar su eficiencia con otros métodos. Ya que, el DFS explora tanto como sea posible a lo largo de cada rama antes de retroceder. Porque, es útil para problemas que tienen subestructuras superpuestas y una propiedad conocida como "optimalidad de subestructura" en donde guardara en un cache externo para evitar repetir el mismo lugar recorrido.
   - Implementó la lógica de movimiento del personaje y la animación.
 
 - **Integrante 3:**
@@ -57,25 +57,28 @@ Cada integrante del equipo propuso diferentes criterios y enfoques para la imple
 
 ### Capturas de la Implementación Final de la UI
 
-![Captura 1](ruta/a/la/captura1.png)
-*Descripción de la captura 1*
+![Captura 1]
+![alt text](image.png)
+*Aqui podemos ver nuesta interfaz grafica, en la cual podremos crear el laberinto, dar la posición inicial y final de nuestro punto/seccion para empezar, y que metodo a usar para completar nuestro laberinto, y por ultimo dar a los botones para empezar a resolverlo o resetear/borrar para empezar de nuevo*
 
-![Captura 2](ruta/a/la/captura2.png)
-*Descripción de la captura 2*
+![Captura 2]
+![alt text](image-1.png)
+*Aqui podremos ver como esta ya generado el laberinto y dando posiciones al punto inicial y final para luego usar algun metodo para resolver nuestro laberinto*
 
-![Captura 3](ruta/a/la/captura3.png)
-*Descripción de la captura 3*
+![Captura 3]
+![alt text](image-2.png)
+*En esta ultima captura vemos como resuelve el laberinto usando el metodo "Recursivo simple" y como nuestro punto inicial era en la poscicion (0,0) pero como vemos en la captura nuestra "img.gif" ya resolvio el laberinto y esta en el punto final que era la posicion (2,2)*
 
 ## Conclusiones
 
-Entre los métodos analizados, el BFS demostró ser la mejor opción para encontrar el camino más corto en laberintos no ponderados. Su capacidad para explorar todos los nodos de un nivel antes de pasar al siguiente garantiza la obtención del camino más corto, aunque puede requerir más memoria que DFS. La programación dinámica también fue eficiente, pero su implementación puede ser más compleja y no siempre necesaria para laberintos pequeños.
+Entre los métodos analizados, el BFS demostró ser la mejor opción para encontrar el camino más corto en laberintos no ponderados. Su capacidad para explorar todos los nodos de un nivel antes de pasar al siguiente garantiza la obtención del camino más corto, aunque puede requerir más memoria que DFS. La programación dinámica también fue eficiente, pero su implementación puede ser más compleja y no siempre necesaria para laberintos pequeños. Ademas, podemos ver que dependiendo del laberinto y donde esten los obstaculos se demoraran más o menos tiempo. Por ultimo, gracias a este trabajo se puede visualizar mejor que metodo puede ser mas eficiente o constante en el tema de resolver y que tenga una complejidad que no se incremente mientras mas grande sea el laberinto y poder entender los codigos y el funcionamiento.
 
 ## Consideraciones
 
 ### Futuras Mejoras
 
 - **Integrante 1:**
-  - Implementar algoritmos de búsqueda heurísticos como A* para mejorar la eficiencia en laberintos grandes.
+  - Implementar algoritmos de búsqueda heurísticos como A* para mejorar la eficiencia en laberintos grandes. Mejorar nuestra interfaz grafica y por ultimo que nuestro laberinto se pueda seleccionar que punto inicial y final por medio del raton y no usando campos de texto.
 
 - **Integrante 2:**
   - Añadir la capacidad de guardar y cargar laberintos desde archivos.
