@@ -1,6 +1,9 @@
+
+![alt text](image-3.png)
+
 # Informe y Documentación del Proyecto de Laberintos
 
-## Carátula o Datos Generales
+## Datos Generales
 
 **Universidad:** Universidad Politecnica Salesiana  
 **Carrera:** Computación  
