@@ -8,7 +8,7 @@
 **Universidad:** Universidad Politecnica Salesiana  
 **Carrera:** Computación  
 **Materia:** Estructura de datos  
-**Integrantes:** Daniel Guanga, Alexis Guaman, Luis Coronel
+**Integrantes:** 
 
 - **Daniel Guanga**  
   - Correo Institucional: [dguangag@est.ups.edu.ec](dguangag@est.ups.edu.ec)
