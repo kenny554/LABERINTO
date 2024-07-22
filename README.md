@@ -5,14 +5,14 @@
 **Universidad:** Universidad Politecnica Salesiana  
 **Carrera:** Computación  
 **Materia:** Estructura de datos  
-**Integrantes:**
+**Integrantes:** Daniel Guanga, Alexis Guaman, Luis Coronel
 
 - **Nombre del Integrante 1**  
   - Correo Institucional: [Daniel Guanga](dguangag@est.ups.edu.ec)
 - **Nombre del Integrante 2**
   - Correo Institucional: [Alexis Guaman](aguamanp4@est.ups.edu.ec)
 - **Nombre del Integrante 3**
-  - Correo Institucional: [Luis Coronel](mailto:integrante3@universidad.edu)
+  - Correo Institucional: [Luis Coronel](lcoronelv@est.ups.edu.ec)
 
 ## Descripción del Problema
 
