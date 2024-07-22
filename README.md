@@ -62,11 +62,11 @@ Cada integrante del equipo propuso diferentes criterios y enfoques para la imple
 
 ![Captura 1]
 ![alt text](image.png)
-*Aqui podemos ver nuesta interfaz grafica, en la cual podremos crear el laberinto, dar la posición inicial y final de nuestro punto/seccion para empezar, y que metodo a usar para completar nuestro laberinto, y por ultimo dar a los botones para empezar a resolverlo o resetear/borrar para empezar de nuevo*
+*Aqui podemos ver nuesta interfaz grafica, en la cual podremos crear el laberinto, dar la posición inicial y final de nuestro punto/seccion para empezar, y que metodo a usar para completar nuestro laberinto, y por ultimo dar a los botones para generar la matriz o para empezar a resolverlo o resetear/borrar para empezar de nuevo*
 
 ![Captura 2]
 ![alt text](image-1.png)
-*Aqui podremos ver como esta ya generado el laberinto y dando posiciones al punto inicial y final para luego usar algun metodo para resolver nuestro laberinto, por último dando clic a los recuadros podremos coloar los obstaculos en el laberinto para que nuestro punto inicial tenga que buscar otros lados para buscar la seccion final, tambien si no hubiera encontrado solucion te seldra un mensaje "ESTAS ATRAPADO"*
+*Aqui podremos ver como esta ya generado el laberinto y dando posiciones al punto inicial y final para luego usar algun metodo para resolver nuestro laberinto, por último dando clic a los recuadros podremos colocar los obstaculos en el laberinto para que nuestro punto inicial tenga que buscar otros lados para buscar la seccion final, tambien si no hubiera encontrado solucion te seldra un mensaje "ESTAS ATRAPADO"*
 
 ![Captura 3]
 ![alt text](image-2.png)

@@ -53,7 +53,7 @@ public class LaberintoUI extends JFrame {
     }
 
     private void initUI() {
-        setTitle("Laberinto Solver");
+        setTitle("LABERINTO BY LOS INGES");
         setSize(1000, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -145,7 +145,7 @@ public class LaberintoUI extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 8;
         gbc.gridwidth = 2;
-        reiniciarLaberintoButton = new JButton("Reiniciar Laberinto");
+        reiniciarLaberintoButton = new JButton("Limpiar Laberinto");
         configPanel.add(reiniciarLaberintoButton, gbc);
         reiniciarLaberintoButton.addActionListener(new ReiniciarLaberintoButtonListener());
 
