@@ -49,7 +49,6 @@ public class LaberintoUI extends JFrame {
     public LaberintoUI(LaberintoController controller) {
         this.controller = controller;
         personajeIcon = new ImageIcon(getClass().getResource("/img/pato.gif")); // Cargar la imagen del personaje
-
         initUI();
     }
 
@@ -255,9 +254,9 @@ public class LaberintoUI extends JFrame {
                 controller.setLaberinto(laberinto);
                 String metodo = (String) metodoComboBox.getSelectedItem();
 
-                long startTime = System.currentTimeMillis();
+                Long startTime = System.currentTimeMillis();
                 List<List<Pair<Integer, Integer>>> soluciones = controller.resolverLaberinto(metodo, inicio, fin);
-                long tiempoEjecucion = System.currentTimeMillis() - startTime;
+                Long tiempoEjecucion = (System.currentTimeMillis() - startTime);
 
                 if (soluciones == null || soluciones.isEmpty()) {
                     JOptionPane.showMessageDialog(LaberintoUI.this,
@@ -313,9 +312,9 @@ public class LaberintoUI extends JFrame {
         }
     }
 
-    private void displaySoluciones(List<List<Pair<Integer, Integer>>> soluciones, String metodo, long tiempoEjecucion) {
+    private void displaySoluciones(List<List<Pair<Integer, Integer>>> soluciones, String metodo, Long tiempoEjecucion) {
         recorridoArea.setText(""); // Limpiar el área de texto de recorrido
-        recorridoArea.append("Tiempo de ejecución: " + tiempoEjecucion + " ms\n\n");
+        recorridoArea.append("Tiempo de ejecución: " + (tiempoEjecucion*1e-6) + " s\n\n");
 
         // Marcar todas las celdas blancas como rojas antes de marcar el camino
         for (int i = 0; i < laberintoLabels.length; i++) {

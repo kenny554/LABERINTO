@@ -65,11 +65,11 @@ Cada integrante del equipo propuso diferentes criterios y enfoques para la imple
 *Aqui podemos ver nuesta interfaz grafica, en la cual podremos crear el laberinto, dar la posición inicial y final de nuestro punto/seccion para empezar, y que metodo a usar para completar nuestro laberinto, y por ultimo dar a los botones para empezar a resolverlo o resetear/borrar para empezar de nuevo*
 
 ![Captura 2]
-![alt text](image-4.png)
+![alt text](image-1.png)
 *Aqui podremos ver como esta ya generado el laberinto y dando posiciones al punto inicial y final para luego usar algun metodo para resolver nuestro laberinto, por último dando clic a los recuadros podremos coloar los obstaculos en el laberinto para que nuestro punto inicial tenga que buscar otros lados para buscar la seccion final, tambien si no hubiera encontrado solucion te seldra un mensaje "ESTAS ATRAPADO"*
 
 ![Captura 3]
-![alt text](image-1.png)
+![alt text](image-2.png)
 *En esta ultima captura vemos como resuelve el laberinto usando el metodo "Recursivo simple" y como nuestro punto inicial era en la poscicion (0,0) pero como vemos en la captura nuestra "img.gif" ya resolvio el laberinto y esta en el punto final que era la posicion (2,2), evitando los obstaculos puestos anteriormente, y tambien vemos como funciona eeste metodo en el cual tomo una solucion pero no es la mas rapida para encontrar el punto final, que solo sigue adelante hasta encontrarse con un obstaculo y cambia su direccion y busca donde hay un lugar libre para seguir y asi econtrar el final*
 
 ## Conclusiones
