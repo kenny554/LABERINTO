@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -23,12 +25,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 
 import controller.LaberintoController;
 import model.Laberinto;
+
 import utils.Pair;
 
 public class LaberintoUI extends JFrame {
@@ -39,7 +41,7 @@ public class LaberintoUI extends JFrame {
     private JComboBox<String> metodoComboBox;
     private JPanel laberintoPanel;
     private JLabel[][] laberintoLabels;
-    private JTextArea recorridoArea;
+    private TextArea recorridoArea;
 
     private Pair<Integer, Integer> personajePosicion; // Posición actual del personaje
     private Timer movimientoTimer; // Timer para animar el movimiento del personaje
@@ -156,12 +158,12 @@ public class LaberintoUI extends JFrame {
         add(laberintoPanel, BorderLayout.CENTER);
 
         // Configuración del área de texto de recorrido
-        recorridoArea = new JTextArea();
+        recorridoArea = new TextArea();
         recorridoArea.setEditable(false);
+        recorridoArea.setBounds(new Rectangle(500,600));
         JScrollPane recorridoScrollPane = new JScrollPane(recorridoArea);
         recorridoScrollPane.setBorder(BorderFactory.createTitledBorder("Recorrido"));
         add(recorridoScrollPane, BorderLayout.SOUTH);
-
         // Configuración del JComboBox para seleccionar el método
         metodoComboBox = new JComboBox<>(new String[] { "RecursivoSimple", "ProgramacionDinamica", "BFS", "DFS" });
         JPanel metodoPanel = new JPanel();
@@ -253,10 +255,10 @@ public class LaberintoUI extends JFrame {
                 Laberinto laberinto = new Laberinto(matriz, inicio, fin);
                 controller.setLaberinto(laberinto);
                 String metodo = (String) metodoComboBox.getSelectedItem();
-
-                Long startTime = System.currentTimeMillis();
-                List<List<Pair<Integer, Integer>>> soluciones = controller.resolverLaberinto(metodo, inicio, fin);
-                Long tiempoEjecucion = (System.currentTimeMillis() - startTime);
+                
+                Long startTime = System.nanoTime();
+                List<List<Pair<Integer, Integer>>> soluciones = controller.resolverLaberinto(metodo, inicio, fin, recorridoArea);
+                Long tiempoEjecucion = (System.nanoTime() - startTime);
 
                 if (soluciones == null || soluciones.isEmpty()) {
                     JOptionPane.showMessageDialog(LaberintoUI.this,
@@ -307,15 +309,15 @@ public class LaberintoUI extends JFrame {
                         }
                     }
                 }
-                recorridoArea.setText(""); // Limpiar el área de texto del recorrido
+                
             }
         }
     }
 
     private void displaySoluciones(List<List<Pair<Integer, Integer>>> soluciones, String metodo, Long tiempoEjecucion) {
-        recorridoArea.setText(""); // Limpiar el área de texto de recorrido
-        recorridoArea.append("Tiempo de ejecución: " + (tiempoEjecucion*1e-6) + " s\n\n");
-
+        recorridoArea.append("\n"); // Limpiar el área de texto de recorrido
+        recorridoArea.append(" Tiempo de ejecución: " + (tiempoEjecucion*1e-9) + " s\n");
+        
         // Marcar todas las celdas blancas como rojas antes de marcar el camino
         for (int i = 0; i < laberintoLabels.length; i++) {
             for (int j = 0; j < laberintoLabels[i].length; j++) {
@@ -326,10 +328,10 @@ public class LaberintoUI extends JFrame {
         }
 
         for (List<Pair<Integer, Integer>> solucion : soluciones) {
-            recorridoArea.append("Recorrido realizado por el método: " + metodo + "\n");
+            recorridoArea.append(" Recorrido realizado por el método: " + metodo + "\n");
             for (Pair<Integer, Integer> posicion : solucion) {
                 laberintoLabels[posicion.getFirst()][posicion.getSecond()].setBackground(Color.GREEN);
-                recorridoArea.append("(" + posicion.getFirst() + ", " + posicion.getSecond() + ") ");
+                recorridoArea.append(" (" + posicion.getFirst() + ", " + posicion.getSecond() + ") ");
             }
             recorridoArea.append("\n\n");
         }
@@ -346,7 +348,7 @@ public class LaberintoUI extends JFrame {
 
         // Configurar el timer para mover el personaje a lo largo del camino
         movimientoTimer = new Timer(500, new ActionListener() {
-            private int paso = 1;
+            private int paso = 0;
 
             @Override
             public void actionPerformed(ActionEvent e) {

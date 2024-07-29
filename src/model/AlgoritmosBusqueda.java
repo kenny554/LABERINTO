@@ -113,7 +113,6 @@ public class AlgoritmosBusqueda {
             caminoActual.remove(caminoActual.size() - 1);
             return;
         }
-
         caminoActual.add(new Pair<>(x, y));
         memo.add(x + "," + y); // Usar un hash set para memoización
 
@@ -126,13 +125,15 @@ public class AlgoritmosBusqueda {
                 resolverRecursivoSimple(nuevoX, nuevoY, finX, finY, caminoActual);
             }
         }
-
         caminoActual.remove(caminoActual.size() - 1); // Backtracking
+
+
     }
 
     // Método de programación dinámica para resolver el laberinto
     private void resolverProgramacionDinamica(int inicioX, int inicioY, int finX, int finY) {
         int[][] distancias = new int[laberinto.getAlto()][laberinto.getAncho()];
+        @SuppressWarnings("unchecked")
         Pair<Integer, Integer>[][] previos = new Pair[laberinto.getAlto()][laberinto.getAncho()];
 
         for (int[] fila : distancias) {

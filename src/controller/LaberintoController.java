@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.TextArea;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -34,7 +35,7 @@ public class LaberintoController {
      * @return Una lista de caminos encontrados.
      */
     public List<List<Pair<Integer, Integer>>> resolverLaberinto(String metodo, Pair<Integer, Integer> puntoInicio,
-            Pair<Integer, Integer> puntoFin) {
+            Pair<Integer, Integer> puntoFin, TextArea txtPantalla) {
         if (puntoInicio == null || puntoFin == null) {
             // Buscar automáticamente los puntos de inicio y fin si no se proporcionan
             puntoInicio = buscarPuntoInicioAutomaticamente();
@@ -42,8 +43,7 @@ public class LaberintoController {
 
             // Verificar si se encontraron puntos válidos
             if (puntoInicio == null || puntoFin == null) {
-                throw new IllegalArgumentException(
-                        "No se pudo encontrar un punto de inicio o fin válido en el laberinto.");
+                JOptionPane.showMessageDialog(null, "No se encontraron los puntos de inicio o de fin");
             }
         }
 
@@ -57,6 +57,9 @@ public class LaberintoController {
                     "Sin Solución", JOptionPane.INFORMATION_MESSAGE);
         }
 
+        txtPantalla.append(" Numero de pasos del metodo: "+resultados.getNumeroPasos());
+            
+        
         // Devolver la lista de caminos encontrados
         return List.of(resultados.getCamino()); // Convertir el camino en una lista de una sola lista de caminos
     }
